@@ -1,6 +1,8 @@
 import React from 'react';
 import * as S from './styles';
 
+import Input from '../../../components/Input';
+
 const Login: React.FC = () => {
   return (
       <S.Container>
@@ -13,8 +15,8 @@ const Login: React.FC = () => {
               </div>
 
               <S.Form>
-                  <input type="text" />
-                  <input type="text"/>
+                  <Input placeholder="E-mail" />
+                  <Input placeholder="Senha" />
                   <button>
                       Entrar
                   </button>
