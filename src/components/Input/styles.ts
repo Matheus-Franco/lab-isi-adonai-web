@@ -10,9 +10,10 @@ export const Container = styled.div`
 
   input {
       flex: 1;
+      width: 100%;
       border: none;
       color: #878787;
-      font-size: 20px;
+      background: transparent;
 
       ::placeholder {
           color: #BBBBBB;

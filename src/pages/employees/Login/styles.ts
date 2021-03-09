@@ -26,8 +26,8 @@ export const Content = styled.div`
 
   h1 {
     font-weight: bold;
-    font-size: 32px;
     margin-bottom: 16px;
+    font-size: 56px;
   }
 
   p {
@@ -39,4 +39,5 @@ export const Content = styled.div`
 export const Form = styled.div`
     display: flex;
     flex-direction: column;
+    width: 340px;
 `
