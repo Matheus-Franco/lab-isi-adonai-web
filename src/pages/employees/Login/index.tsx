@@ -9,18 +9,14 @@ const Login: React.FC = () => {
           <S.ImageBackground />
 
           <S.Content>
-              <div>
-                <h1>Adonai</h1>
-                <p>Faça login com a sua conta</p>
-              </div>
+            <h1>Adonai</h1>
+            <p>Faça login com a sua conta</p>
 
-              <S.Form>
-                  <Input placeholder="E-mail" />
-                  <Input placeholder="Senha" />
-                  <button>
-                      Entrar
-                  </button>
-              </S.Form>
+            <S.Form>
+                <Input placeholder="E-mail" />
+                <Input placeholder="Senha" type="password" />
+                <button>Entrar</button>
+            </S.Form>
           </S.Content>
       </S.Container>
   )

@@ -21,6 +21,19 @@ export const Content = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 600px;
+
+  text-align: center;
+
+  h1 {
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #484848;
+    margin-bottom: 56px;
+  }
 `;
 
 export const Form = styled.div`
