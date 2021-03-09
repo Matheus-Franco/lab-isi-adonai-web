@@ -1,8 +1,14 @@
 import React from 'react';
 
+import GlobalStyle from './styles/globalStyle'
+import Login from './pages/employees/Login';
+
 const App: React.FC = () => {
   return (
-    <div>App</div>
+    <>
+      <GlobalStyle />
+      <Login />
+    </>
   )
 }
 
