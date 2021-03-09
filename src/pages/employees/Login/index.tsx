@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './styles';
 
 import Input from '../../../components/Input';
+import Button from '../../../components/Button';
 
 const Login: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const Login: React.FC = () => {
             <S.Form>
                 <Input placeholder="E-mail" />
                 <Input placeholder="Senha" type="password" />
-                <button>Entrar</button>
+                <Button>Entrar</Button>
             </S.Form>
           </S.Content>
       </S.Container>
