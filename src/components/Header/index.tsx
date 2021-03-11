@@ -1,6 +1,8 @@
 import React from 'react';
 import * as S from './styles';
 
+import SearchInput from '../SearchInput';
+
 import { FiMenu, FiShoppingCart, FiUser } from 'react-icons/fi'
 import { VscSignOut } from 'react-icons/vsc'
 
@@ -10,7 +12,9 @@ const Header: React.FC = () => {
             <div>
                 <FiMenu size={24} />
                 <h2>Adonai</h2>
+                <SearchInput placeholder="Busque o que deseja" />
             </div>
+
             <S.UserActions>
                 <FiShoppingCart size={24} />
                 <FiUser size={24} />
