@@ -5,9 +5,18 @@ import Header from '../../../components/Header';
 
 const Dashboard: React.FC = () => {
   return (
+    <>
+      <Header />
       <S.Container>
-          <Header />
+          <S.FilterSidebar>
+            filter menu
+          </S.FilterSidebar>
+
+          <S.Content>
+            main content
+          </S.Content>
       </S.Container>
+    </>
   )
 }
 
