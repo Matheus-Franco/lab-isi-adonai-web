@@ -17,10 +17,19 @@ export const Container = styled.div`
       margin-left: 24px;
     }
   }
+
+  svg {
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+          opacity: 0.8;
+      }
+  }
 `;
 
-export const Icon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+export const UserActions = styled.div`
+    justify-content: space-between;
+    width: calc((24px * 3) + 50px);
+`

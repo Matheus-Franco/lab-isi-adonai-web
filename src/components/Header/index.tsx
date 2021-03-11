@@ -1,18 +1,21 @@
 import React from 'react';
 import * as S from './styles';
 
+import { FiMenu, FiShoppingCart, FiUser } from 'react-icons/fi'
+import { VscSignOut } from 'react-icons/vsc'
+
 const Header: React.FC = () => {
     return (
         <S.Container>
             <div>
-                <S.Icon>menu</S.Icon>
+                <FiMenu size={24} />
                 <h2>Adonai</h2>
             </div>
-            <div>
-                <S.Icon>cart</S.Icon>
-                <S.Icon>user</S.Icon>
-                <S.Icon>signout</S.Icon>
-            </div>
+            <S.UserActions>
+                <FiShoppingCart size={24} />
+                <FiUser size={24} />
+                <VscSignOut size={24} />
+            </S.UserActions>
         </S.Container>
     )
 }
