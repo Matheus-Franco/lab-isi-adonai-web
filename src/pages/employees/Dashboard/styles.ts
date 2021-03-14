@@ -15,15 +15,6 @@ export const FilterItems = styled.div`
     align-items: center;
     display: flex;
     margin: 24px 0;
-
-    select {
-        padding: 16px;
-        margin-right: 24px;
-        border-radius: 4px;
-        background: #fff;
-        border-color: #ff9000;
-        color: #ff9000;
-    }
 `
 
 export const AvailableItemsContainer = styled.div`
