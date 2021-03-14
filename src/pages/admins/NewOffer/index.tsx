@@ -3,10 +3,12 @@ import * as S from './styles';
 
 import LabelInput from '../../../components/LabelInput';
 import Button from '../../../components/Button';
+import HeaderAdmin from '../../../components/HeaderAdmin';
 
 const NewOffer: React.FC = () => {
     return (
         <>
+            <HeaderAdmin />
             <S.Container>
                 <S.Title>
                     <h1>Registre uma nova oferta</h1>
