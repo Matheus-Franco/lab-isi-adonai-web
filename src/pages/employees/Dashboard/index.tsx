@@ -5,6 +5,7 @@ import Header from '../../../components/Header';
 import Button from '../../../components/Button';
 import Select from '../../../components/Select';
 import ImageCar from '../../../assets/carimage.png'
+import ProductItem from '../../../components/ProductItem';
 
 const Dashboard: React.FC = () => {
   const [filterItemsIsOpen, setFilterItemsIsOpen] = useState<boolean>(false)
@@ -34,55 +35,11 @@ const Dashboard: React.FC = () => {
         {renderFilterItems}
 
         <S.AvailableItemsContainer>
-          <div>
-            <img src={ImageCar} alt="car" />
-            <div>
-              <p>BMW 320i</p>
-              <a href="#">Ver detalhes</a>
-            </div>
-          </div>
-          <div>
-            <img src={ImageCar} alt="car" />
-            <div>
-              <p>BMW 320i</p>
-              <a href="#">Ver detalhes</a>
-            </div>
-          </div>
-          <div>
-            <img src={ImageCar} alt="car" />
-            <div>
-              <p>BMW 320i</p>
-              <a href="#">Ver detalhes</a>
-            </div>
-          </div>
-          <div>
-            <img src={ImageCar} alt="car" />
-            <div>
-              <p>BMW 320i</p>
-              <a href="#">Ver detalhes</a>
-            </div>
-          </div>
-          <div>
-            <img src={ImageCar} alt="car" />
-            <div>
-              <p>BMW 320i</p>
-              <a href="#">Ver detalhes</a>
-            </div>
-          </div>
-          <div>
-            <img src={ImageCar} alt="car" />
-            <div>
-              <p>BMW 320i</p>
-              <a href="#">Ver detalhes</a>
-            </div>
-          </div>
-          <div>
-            <img src={ImageCar} alt="car" />
-            <div>
-              <p>BMW 320i</p>
-              <a href="#">Ver detalhes</a>
-            </div>
-          </div>
+          <ProductItem src={ImageCar} productName="BMW 320i" />
+          <ProductItem src={ImageCar} productName="BMW 320i" />
+          <ProductItem src={ImageCar} productName="BMW 320i" />
+          <ProductItem src={ImageCar} productName="BMW 320i" />
+          <ProductItem src={ImageCar} productName="BMW 320i" />
         </S.AvailableItemsContainer>
       </S.Container>
     </>
