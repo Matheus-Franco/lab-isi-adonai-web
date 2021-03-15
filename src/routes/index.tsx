@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import Login from '../pages/employees/Login'
 import Dashboard from '../pages/employees/Dashboard'
+import ProductDetails from '../pages/employees/ProductDetails'
 
 import LoginAdmin from '../pages/admins/Login'
 import NewOffer from '../pages/admins/NewOffer'
@@ -12,6 +13,7 @@ const Routes: React.FC = () => {
         <Switch>
             <Route path="/" component={Login} exact />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/product-details" component={ProductDetails} />
 
             <Route path="/admin" component={LoginAdmin} exact />
             <Route path='/new-offer' component={NewOffer} />
