@@ -5,8 +5,13 @@ import SearchInput from '../SearchInput';
 
 import { FiMenu, FiShoppingCart, FiUser } from 'react-icons/fi'
 import { VscSignOut } from 'react-icons/vsc'
+import { useHistory } from 'react-router';
 
 const Header: React.FC = () => {
+    const { push } = useHistory();
+
+    const handleNavigate = () => push('/');
+
     return (
         <S.Container>
             <div>
@@ -18,7 +23,7 @@ const Header: React.FC = () => {
             <S.UserActions>
                 <FiShoppingCart size={24} />
                 <FiUser size={24} />
-                <VscSignOut size={24} />
+                <VscSignOut size={24} onClick={handleNavigate} />
             </S.UserActions>
         </S.Container>
     )
