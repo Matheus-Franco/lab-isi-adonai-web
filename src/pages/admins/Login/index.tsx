@@ -4,7 +4,13 @@ import * as S from './styles';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 
+import { useHistory } from 'react-router-dom';
+
 const Login: React.FC = () => {
+  const { push } = useHistory();
+
+  const handleNavigate = () => push('/new-offer');
+
   return (
       <S.Container>
           <S.Content>
@@ -14,7 +20,7 @@ const Login: React.FC = () => {
             <S.Form>
                 <Input placeholder="E-mail" />
                 <Input placeholder="Senha" type="password" />
-                <Button>Entrar</Button>
+                <Button onClick={handleNavigate}>Entrar</Button>
             </S.Form>
           </S.Content>
       </S.Container>
