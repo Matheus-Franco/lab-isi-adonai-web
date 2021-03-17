@@ -1,9 +1,9 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import Login from '../pages/employees/Login'
-import Dashboard from '../pages/employees/Dashboard'
-import ProductDetails from '../pages/employees/ProductDetails'
+import Login from '../pages/clients/Login'
+import Dashboard from '../pages/clients/Dashboard'
+import ProductDetails from '../pages/clients/ProductDetails'
 
 import LoginAdmin from '../pages/admins/Login'
 import NewOffer from '../pages/admins/NewOffer'
