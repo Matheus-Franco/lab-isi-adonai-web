@@ -40,7 +40,7 @@ export const AdminAuthProvider: React.FC = ({ children }) => {
   });
 
   const signIn = useCallback(async ({ email, password }) => {
-    const response = await api.post('sessions', {
+    const response = await api.post('admin/sessions', {
       email,
       password
     });
