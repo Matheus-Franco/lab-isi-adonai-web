@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { ClientAuthProvider } from './clientAuth';
+import { AdminAuthProvider } from './adminAuth';
 
 const AppProvider: React.FC = ({ children }) => {
   return (
-    <ClientAuthProvider>
+    <AdminAuthProvider>
+      <ClientAuthProvider>
         {children}
-    </ClientAuthProvider>
+      </ClientAuthProvider>
+    </AdminAuthProvider>
   )
 }
 
