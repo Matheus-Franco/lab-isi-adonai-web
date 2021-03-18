@@ -5,11 +5,11 @@ import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 
 import { useHistory } from 'react-router';
-import { useAuth } from '../../../hooks/clientAuth';
+import { useClientAuth } from '../../../hooks/clientAuth';
 
 const Login: React.FC = () => {
   const { push } = useHistory();
-  const { signIn } = useAuth();
+  const { signIn } = useClientAuth();
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');

@@ -69,7 +69,7 @@ export const ClientAuthProvider: React.FC = ({ children }) => {
   );
 };
 
-export function useAuth(): AuthContextData {
+export function useClientAuth(): AuthContextData {
   const context = useContext(AuthContext);
 
   return context
