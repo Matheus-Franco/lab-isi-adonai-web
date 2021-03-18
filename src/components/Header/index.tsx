@@ -6,11 +6,17 @@ import SearchInput from '../SearchInput';
 import { FiMenu, FiShoppingCart, FiUser } from 'react-icons/fi'
 import { VscSignOut } from 'react-icons/vsc'
 import { useHistory } from 'react-router';
+import { useClientAuth } from '../../hooks/clientAuth';
 
 const Header: React.FC = () => {
     const { push } = useHistory();
+    const { signOut } = useClientAuth();
 
-    const handleNavigate = () => push('/');
+    const handleSignOut = () => {
+        signOut();
+
+        push('/');
+    };
 
     return (
         <S.Container>
@@ -23,7 +29,7 @@ const Header: React.FC = () => {
             <S.UserActions>
                 <FiShoppingCart size={24} />
                 <FiUser size={24} />
-                <VscSignOut size={24} onClick={handleNavigate} />
+                <VscSignOut size={24} onClick={handleSignOut} />
             </S.UserActions>
         </S.Container>
     )
