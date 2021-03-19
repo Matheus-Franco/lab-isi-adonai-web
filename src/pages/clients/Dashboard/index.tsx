@@ -10,6 +10,7 @@ import api from '../../../services/api';
 
 interface IOfferType {
   title: string;
+  id: string;
 }
 
 const Dashboard: React.FC = () => {
@@ -26,7 +27,9 @@ const Dashboard: React.FC = () => {
   
   const toggleOpenFilterItems = () => setFilterItemsIsOpen(!filterItemsIsOpen)
   
-  const renderOffers = offers && offers.map(offer => <ProductItem src={ImageCar} productName={offer.title} />)
+  const renderOffers = offers && offers.map(offer => 
+    <ProductItem key={offer.id} src={ImageCar} productName={offer.title} />
+  )
 
   const renderFilterItems = filterItemsIsOpen && (
     <S.FilterItems>
