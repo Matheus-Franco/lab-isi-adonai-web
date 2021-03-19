@@ -18,11 +18,13 @@ const Header: React.FC = () => {
         push('/');
     };
 
+    const handleNavigateToDashBoard = () => push('/dashboard');
+
     return (
         <S.Container>
             <div>
                 <FiMenu size={24} />
-                <h2>Adonai</h2>
+                <h2 onClick={handleNavigateToDashBoard}>Adonai</h2>
                 <SearchInput placeholder="Busque o que deseja" />
             </div>
 
