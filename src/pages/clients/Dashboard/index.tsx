@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styles';
 
 import Header from '../../../components/Header';
@@ -6,11 +6,27 @@ import Button from '../../../components/Button';
 import Select from '../../../components/Select';
 import ImageCar from '../../../assets/carimage.png'
 import ProductItem from '../../../components/ProductItem';
+import api from '../../../services/api';
+
+interface IOfferType {
+  title: string;
+}
 
 const Dashboard: React.FC = () => {
   const [filterItemsIsOpen, setFilterItemsIsOpen] = useState<boolean>(false)
+  const [offers, setOffers] = useState<IOfferType[]>([]);
 
+  useEffect(() => { handleGetCreatedOffers() }, []);
+
+  const handleGetCreatedOffers = async () => {
+    const response = await api.get('/offers');
+    
+    setOffers(response.data);
+  }
+  
   const toggleOpenFilterItems = () => setFilterItemsIsOpen(!filterItemsIsOpen)
+  
+  const renderOffers = offers && offers.map(offer => <ProductItem src={ImageCar} productName={offer.title} />)
 
   const renderFilterItems = filterItemsIsOpen && (
     <S.FilterItems>
@@ -35,11 +51,7 @@ const Dashboard: React.FC = () => {
         {renderFilterItems}
 
         <S.AvailableItemsContainer>
-          <ProductItem src={ImageCar} productName="BMW 320i" />
-          <ProductItem src={ImageCar} productName="BMW 320i" />
-          <ProductItem src={ImageCar} productName="BMW 320i" />
-          <ProductItem src={ImageCar} productName="BMW 320i" />
-          <ProductItem src={ImageCar} productName="BMW 320i" />
+          {renderOffers}
         </S.AvailableItemsContainer>
       </S.Container>
     </>
