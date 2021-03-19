@@ -19,20 +19,28 @@ const Dashboard: React.FC = () => {
   const [filterItemsIsOpen, setFilterItemsIsOpen] = useState<boolean>(false)
   const [offers, setOffers] = useState<IOfferType[]>([]);
   const [pricesData, setPricesData] = useState<string[]>([]);
-  const [yeraModelsData, setYearModelsData] = useState<string[]>([]);
+  const [yearModelsData, setYearModelsData] = useState<string[]>([]);
   const [titlesData, setTitlesData] = useState<string[]>([]);
+  const [yearModelFilter, setYearModelFilter] = useState<string>("")
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { handleGetCreatedOffers() }, []);
 
   const handleGetCreatedOffers = async () => {
-    const response = await api.get('/offers');
+    const response = await api.get('/offers', {
+      params: {
+        year_model: yearModelFilter
+      }
+    });
     
     if (response.status === 200) {
       setOffers(response.data);
-      getPrices(response.data);
-      getYearModels(response.data);
-      getTitles(response.data);
+      
+      if (!yearModelFilter) {
+        getPrices(response.data);
+        getYearModels(response.data);
+        getTitles(response.data);
+      }
     }
   }
 
@@ -69,9 +77,14 @@ const Dashboard: React.FC = () => {
   const renderFilterItems = filterItemsIsOpen && (
     <S.FilterItems>
       <Select firstOption="Preço" optionsArray={pricesData} />
-      <Select firstOption="Ano" optionsArray={yeraModelsData} />
+      <Select 
+          firstOption="Ano" 
+          optionsArray={yearModelsData} 
+          value={yearModelFilter} 
+          onChange={(e) => setYearModelFilter(e.target.value)} 
+      />
       <Select firstOption="Nome da oferta" optionsArray={titlesData} />
-      <Button>Aplicar</Button>
+      <Button onClick={handleGetCreatedOffers}>Aplicar</Button>
     </S.FilterItems>
   )
 

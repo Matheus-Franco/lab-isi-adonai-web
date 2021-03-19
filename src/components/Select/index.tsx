@@ -1,7 +1,7 @@
-import React, { OptionHTMLAttributes } from 'react';
+import React, { SelectHTMLAttributes } from 'react';
 import * as S from './styles';
 
-interface ISelectProps extends OptionHTMLAttributes<HTMLSelectElement> {
+interface ISelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     optionsArray: Array<string>
     firstOption: string
 }
