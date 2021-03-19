@@ -11,18 +11,53 @@ import api from '../../../services/api';
 interface IOfferType {
   title: string;
   id: string;
+  price: string;
+  year_model: string
 }
 
 const Dashboard: React.FC = () => {
   const [filterItemsIsOpen, setFilterItemsIsOpen] = useState<boolean>(false)
   const [offers, setOffers] = useState<IOfferType[]>([]);
+  const [pricesData, setPricesData] = useState<string[]>([]);
+  const [yeraModelsData, setYearModelsData] = useState<string[]>([]);
+  const [titlesData, setTitlesData] = useState<string[]>([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { handleGetCreatedOffers() }, []);
 
   const handleGetCreatedOffers = async () => {
     const response = await api.get('/offers');
     
-    setOffers(response.data);
+    if (response.status === 200) {
+      setOffers(response.data);
+      getPrices(response.data);
+      getYearModels(response.data);
+      getTitles(response.data);
+    }
+  }
+
+  const getPrices = (offers: IOfferType[]) => {
+    const prices = offers.map(offer => offer.price);
+
+    const noRepeatOffers = new Set(prices);
+
+    setPricesData(Array.from(noRepeatOffers));
+  }
+
+  const getYearModels = (offers: IOfferType[]) => {
+    const yearModels = offers.map(offer => offer.year_model);
+
+    const noRepeatYearModels = new Set(yearModels)
+
+    setYearModelsData(Array.from(noRepeatYearModels))
+  }
+
+  const getTitles = (offers: IOfferType[]) => {
+    const titles = offers.map(offer => offer.title);
+
+    const noRepeatTitles = new Set(titles)
+
+    setTitlesData(Array.from(noRepeatTitles))
   }
   
   const toggleOpenFilterItems = () => setFilterItemsIsOpen(!filterItemsIsOpen)
@@ -33,9 +68,9 @@ const Dashboard: React.FC = () => {
 
   const renderFilterItems = filterItemsIsOpen && (
     <S.FilterItems>
-      <Select firstOption="Preço" optionsArray={['29,9', '49,9']} />
-      <Select firstOption="Ano" optionsArray={['2015', '2018']} />
-      <Select firstOption="Tipo de Operação" optionsArray={['Compra', 'Venda']} />
+      <Select firstOption="Preço" optionsArray={pricesData} />
+      <Select firstOption="Ano" optionsArray={yeraModelsData} />
+      <Select firstOption="Nome da oferta" optionsArray={titlesData} />
       <Button>Aplicar</Button>
     </S.FilterItems>
   )
