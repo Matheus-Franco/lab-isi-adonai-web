@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
   const toggleOpenFilterItems = () => setFilterItemsIsOpen(!filterItemsIsOpen)
   
   const renderOffers = offers && offers.map(offer => 
-    <ProductItem key={offer.id} src={ImageCar} productName={offer.title} />
+    <ProductItem key={offer.id} src={ImageCar} productName={offer.title} productId={offer.id} />
   )
 
   const renderFilterItems = filterItemsIsOpen && (
