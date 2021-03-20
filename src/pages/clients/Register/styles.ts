@@ -40,9 +40,4 @@ export const Form = styled.div`
     display: flex;
     flex-direction: column;
     width: 340px;
-
-    .register {
-      margin-top: 24px;
-      cursor: pointer;
-    }
 `

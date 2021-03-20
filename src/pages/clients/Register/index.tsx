@@ -3,25 +3,31 @@ import * as S from './styles';
 
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import api from '../../../services/api';
 
 import { useHistory } from 'react-router';
-import { useClientAuth } from '../../../hooks/clientAuth';
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const { push } = useHistory();
-  const { signIn } = useClientAuth();
 
+  const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      await signIn({
-        email,
-        password
+      const response = await api.post('/clients', {
+          name,
+          email,
+          password
       });
 
-      push('/dashboard')
+      if (response.status === 200) {
+        push('/')
+        setName("")
+        setEmail("")
+        setPassword("")
+      }
     } catch (e) {
       console.log('Erro')
     }
@@ -33,9 +39,14 @@ const Login: React.FC = () => {
 
           <S.Content>
             <h1>Adonai</h1>
-            <p>Faça login com a sua conta</p>
+            <p>Registre sua conta</p>
 
             <S.Form>
+                <Input 
+                  placeholder="Nome"  
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
                 <Input 
                   placeholder="E-mail"  
                   value={email}
@@ -47,17 +58,11 @@ const Login: React.FC = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button onClick={handleLogin}>Entrar</Button>
-                <p 
-                  className="register" 
-                  onClick={() => push('/register')}
-                >
-                    Não possui uma conta? Registre-se aqui
-                </p>
+                <Button onClick={handleRegister}>Entrar</Button>
             </S.Form>
           </S.Content>
       </S.Container>
   )
 }
 
-export default Login;
+export default Register;
